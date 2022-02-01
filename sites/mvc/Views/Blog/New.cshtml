@@ -1,0 +1,19 @@
+@model mvc.Models.BlogModel
+@{
+
+}
+<h1>Blog New View</h1>
+<form method="post">
+    <div>
+        <label asp-for="User"></label>
+        <span class="validation-error" asp-validation-for="User"></span>
+    </div>
+    <input asp-for="User" value="@(Model?.User)">
+    <div>
+        <label asp-for="Content"></label>
+        <span class="validation-error" asp-validation-for="Content"></span>
+    </div>
+    <textarea asp-for="Content">@(Model?.Content)</textarea>
+    <div asp-validation-summary="ModelOnly"></div>
+    <input type="submit" value="Blog!">
+</form>

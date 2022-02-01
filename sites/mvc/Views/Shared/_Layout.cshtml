@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>@ViewData["title"]</title>
+</head>
+<body>
+<div>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a asp-controller="Root" asp-action="Index">Home</a>
+                </li>
+                <li>
+                    <a asp-controller="Blog" asp-action="Index">Blog</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+</div>
+@RenderBody()
+</body>
+</html>
