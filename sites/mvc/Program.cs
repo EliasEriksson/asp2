@@ -18,19 +18,19 @@ app.UseStaticFiles(rootUrl);
 
 app.MapControllerRoute(
     "root",
-    $"{rootUrl}/{{action=Index}}/",
+    $"{{action=Index}}/",
     new {controller = "Root"}
 );
 
 app.MapControllerRoute(
     "blogIndex",
-    $"{rootUrl}/{{controller=Home}}/{{action}}/",
+    $"{{controller=Home}}/{{action}}/",
     new{action = "Index"}
 );
 
 app.MapControllerRoute(
     "blogSingle",
-    $"{rootUrl}/{{controller=Blog}}/{{id?}}/",
+    $"{{controller=Blog}}/{{id?}}/",
     new {action = "Index"}
 );
 
