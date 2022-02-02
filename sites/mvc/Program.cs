@@ -8,12 +8,13 @@ builder.Services.AddSession(options =>
 });
 
 var app = builder.Build();
+const string rootUrl = "/aspdotnet/moment2";
 
-app.UseStaticFiles();
 app.UseSession();
 app.UseRouting();
+app.UsePathBase(rootUrl);
+app.UseStaticFiles(rootUrl);
 
-const string rootUrl = "/aspdotnet/moment2";
 
 app.MapControllerRoute(
     "root",
