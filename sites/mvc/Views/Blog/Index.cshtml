@@ -1,6 +1,22 @@
-@{
-    
-}
+@model List<mvc.Models.BlogModel>
 <a asp-controller="Blog" asp-action="New">New</a>
 <h1>Blog Index View</h1>
-<p>uuid: @Guid.NewGuid().ToString()</p>
+@if (Model == null)
+{
+    <p>Inga blogginlägg finns än. </p>
+}
+else
+{
+    <div class="blog-posts">
+        @foreach (var post in Model)
+        {
+            <div class="post">
+                <span>@post.User</span>
+                <p>@post.Content</p>
+                @* va i helvete asp, varför blir detta rätt?????? *@
+                <a asp-controller="Blog" asp-action="@post.Id"></a>
+                <time>@post.Time?.ToString("yyyy-MM-dd HH:mm:ss")</time>
+            </div>
+        }
+    </div>
+}

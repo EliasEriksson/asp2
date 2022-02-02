@@ -9,11 +9,11 @@ namespace mvc.Models
 
         [Required]
         [Display(Name = "User:")]
-        public string? User { get; set; }
+        public string? User { get; init; }
     
         [Required]
         [Display(Name = "Content:")]
-        public string? Content { get; set; }
+        public string? Content { get; init; }
         
         [Required]
         public DateTime? Time { get; set; }

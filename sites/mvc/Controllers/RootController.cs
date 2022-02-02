@@ -6,6 +6,13 @@ namespace mvc.Controllers
     {
         public IActionResult Index()
         {
+            ViewData["title"] = "Home";
+            return this.View();
+        }
+
+        public IActionResult About()
+        {
+            ViewData["title"] = "About";
             return this.View();
         }
     }

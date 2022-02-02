@@ -1,14 +1,11 @@
 @model mvc.Models.BlogModel
-@{
-
-}
 <h1>Blog New View</h1>
 <form method="post">
     <div>
         <label asp-for="User"></label>
         <span class="validation-error" asp-validation-for="User"></span>
     </div>
-    <input asp-for="User" value="@(Model?.User)">
+    <input asp-for="User" value="@(Model?.User ?? (ViewBag.previousName ?? ""))">
     <div>
         <label asp-for="Content"></label>
         <span class="validation-error" asp-validation-for="Content"></span>
