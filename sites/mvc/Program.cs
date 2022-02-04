@@ -12,7 +12,6 @@ const string rootUrl = "/aspdotnet/moment2";
 
 app.UseSession();
 app.UseRouting();
-// app.UsePathBase(rootUrl);
 app.UseStaticFiles(rootUrl);
 
 
@@ -25,7 +24,7 @@ app.MapControllerRoute(
 app.MapControllerRoute(
     "blogIndex",
     $"{rootUrl}/{{controller=Home}}/{{action}}/",
-    new{action = "Index"}
+    new {action = "Index"}
 );
 
 app.MapControllerRoute(

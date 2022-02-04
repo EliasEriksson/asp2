@@ -1,11 +1,8 @@
 @model mvc.Models.BlogModel
-@* model is guaranteed to be defined here since user  *@
-@* is redirected if the id doesnt exist *@
-@* null errors will be suppressed *@
 
 <h1>Blog Single View</h1>
 <div>
-    <span>@Model.User</span>
-    <p>@Model.Content</p>
-    <time>@(Model.Time?.ToString("yyyy-MM-dd HH:mm:ss"))</time>
+    <span>@Model?.User</span>
+    <p>@Model?.Content</p>
+    <time>@(Model?.Time?.ToString("yyyy-MM-dd HH:mm:ss"))</time>
 </div>
