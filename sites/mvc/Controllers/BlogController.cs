@@ -81,7 +81,8 @@ namespace mvc.Controllers
             // model.User null warning suppressed since the model have
             // validated here and therefor can not be null
             HttpContext.Session.SetString("previousName", model.User!);
-            return this.RedirectToAction(controllerName:"Blog", actionName: "Index", routeValues: model.Id);
+            //          clearly the action name, good job asp!  vvvvvvvvvvvvvvvvvvvvvvv
+            return this.RedirectToAction(controllerName:"Blog", actionName: $"{model.Id}");
 
         }
     }
