@@ -21,16 +21,18 @@ app.MapControllerRoute(
     new {controller = "Root"}
 );
 
+// how does asp know to use the blog controller?
+// that is asps inner secret
 app.MapControllerRoute(
     "blogIndex",
-    $"{rootUrl}/{{controller=Home}}/{{action}}/",
+    $"{rootUrl}/{{controller}}/{{action}}/",
     new {action = "Index"}
 );
 
 app.MapControllerRoute(
     "blogSingle",
-    $"{rootUrl}/{{controller=Blog}}/{{id?}}/",
-    new {action = "Index"}
+    $"{rootUrl}/{{controller}}/{{id?}}/",
+    new {action = "Index", controller="Blog"}
 );
 
 app.Run();
