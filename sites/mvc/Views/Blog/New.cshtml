@@ -1,46 +1,53 @@
 @using mvc.Models
 @model mvc.Models.BlogModel
-<h1>Blog New View</h1>
-<form method="post">
-    <div>
-        <label asp-for="User"></label>
-        <span class="validation-error" asp-validation-for="User"></span>
-    </div>
-    <input asp-for="User" value="@(Model?.User ?? (ViewBag.previousName ?? ""))">
-    <div>
-        <label asp-for="Content"></label>
-        <span class="validation-error" asp-validation-for="Content"></span>
-    </div>
-    <textarea asp-for="Content">@(Model?.Content)</textarea>
-    <div asp-validation-summary="ModelOnly"></div>
-    <div>
-        <div>
-            <label asp-for="Sex">@Sexes.Female</label>
-            <span class="validation-error" asp-validation-for="Sex"></span>
-            <input type="radio" asp-for="Sex" value="@((int) @Sexes.Female)">
+<main>
+    <h1>New blog post</h1>
+    <form method="post">
+        <div asp-validation-summary="ModelOnly"></div>
+        <div class="text-wrapper">
+            <label asp-for="User"></label>
+            <p class="validation-error" asp-validation-for="User"></p>
+            <input asp-for="User" value="@(Model?.User ?? (ViewBag.previousName ?? ""))">
         </div>
-        <div>
-            <label asp-for="Sex">@Sexes.Male</label>
-            <span class="validation-error" asp-validation-for="Sex"></span>
-            <input type="radio" asp-for="Sex" value="@((int) @Sexes.Male)">
+        <div class="text-wrapper">
+            <label asp-for="Content"></label>
+            <span class="validation-error" asp-validation-for="Content"></span>
+            <textarea asp-for="Content">@(Model?.Content)</textarea>
         </div>
-        <div>
-            <label asp-for="Sex">@Sexes.Other</label>
-            <span class="validation-error" asp-validation-for="Sex"></span>
-            <input type="radio" asp-for="Sex" value="@((int) @Sexes.Other)" checked>
+    
+        <div class="box-wrapper">
+            <div class="radio-wrapper">
+                <div>
+                    <label asp-for="Sex">@Sexes.Woman</label>
+                    <span class="validation-error" asp-validation-for="Sex"></span>
+                    <input type="radio" asp-for="Sex" value="@((int) @Sexes.Woman)">
+                </div>
+                <div>
+                    <label asp-for="Sex">@Sexes.Man</label>
+                    <span class="validation-error" asp-validation-for="Sex"></span>
+                    <input type="radio" asp-for="Sex" value="@((int) @Sexes.Man)">
+                </div>
+                <div>
+                    <label asp-for="Sex">@Sexes.Other</label>
+                    <span class="validation-error" asp-validation-for="Sex"></span>
+                    <input type="radio" asp-for="Sex" value="@((int) @Sexes.Other)" checked>
+                </div>
+            </div>
+            <div>
+                <label asp-for="LookingForLove"></label>
+                <span class="validation-error" asp-validation-for="LookingForLove"></span>
+                @if (Model?.LookingForLove == true)
+                {
+                    <input type="checkbox" asp-for="LookingForLove" checked>
+                }
+                else
+                {
+                    <input type="checkbox" asp-for="LookingForLove">
+                }
+            </div>
         </div>
-    </div>
-    <div>
-        <label asp-for="LookingForLove"></label>
-        <span class="validation-error" asp-validation-for="LookingForLove"></span>
-        @if (Model?.LookingForLove == true)
-        {
-            <input type="checkbox" asp-for="LookingForLove" checked>
-        }
-        else
-        {
-            <input type="checkbox" asp-for="LookingForLove">
-        }
-    </div>
-    <input type="submit" value="Blog!">
-</form>
+        <div class="submit-wrapper">
+            <input type="submit" value="Blog!">
+        </div>
+    </form>
+</main>

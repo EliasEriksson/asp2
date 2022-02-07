@@ -4,8 +4,8 @@ namespace mvc.Models
 {
     public enum Sexes
     {
-        Male,
-        Female,
+        Man,
+        Woman,
         Other
     }
 
@@ -25,9 +25,11 @@ namespace mvc.Models
         public string? Content { get; init; }
         
         [Required]
+        [Display(Name = "Looking for love")]
         public bool LookingForLove { get; set; }
         
         [Required]
+        [Display(Name = "Sex")]
         public Sexes Sex { get; set; }
         
         [Required]

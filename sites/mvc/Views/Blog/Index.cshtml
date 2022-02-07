@@ -1,22 +1,38 @@
 @model List<mvc.Models.BlogModel>
-<a asp-controller="Blog" asp-action="New">New</a>
-<h1>Blog Index View</h1>
-@if (Model == null)
-{
-    <p>Inga blogginlägg finns än. </p>
-}
-else
-{
+<main>
+    <div class="side-by-side">
+        <h1>Blog</h1>
+        <a class="link-button" asp-controller="Blog" asp-action="New">New</a>
+    </div>
     <div class="blog-posts">
-        @foreach (var post in Model)
+        @if (Model == null)
         {
-            <div class="post">
-                <span>@post.User</span>
-                <p>@post.Content</p>
-                @* va i helvete asp, varför blir detta rätt?????? *@
-                <a asp-controller="Blog" asp-action="@post.Id"></a>
-                <time>@post.Time?.ToString("yyyy-MM-dd HH:mm:ss")</time>
-            </div>
+            <p>Inga blogginlägg finns än.</p>
+        }
+        else
+        {
+            @foreach (var post in Model)
+            {
+                <div class="post">
+                    <div class="side-by-side">
+                        <span>@post.User</span>
+                        <time>@post.Time?.ToString("yyyy-MM-dd HH:mm:ss")</time>
+                    </div>
+                    <div class="post-content">
+                        <p>@post.Content</p>
+                    </div>
+            
+                    @if (post.LookingForLove)
+                    {
+                        <hr/>
+                        <div>
+                            <p><span class="cap">@post.User</span> defines as <span class="lower">@post.Sex</span> and is looking for love ;)</p>
+                        </div>
+                    }
+                    @* va i helvete asp, varför blir detta rätt?????? *@
+                    <a asp-controller="Blog" asp-action="@post.Id" asp-route></a>
+                </div>
+            }
         }
     </div>
-}
+</main>

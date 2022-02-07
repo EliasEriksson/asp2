@@ -1,8 +1,18 @@
 @model mvc.Models.BlogModel
-
-<h1>Blog Single View</h1>
-<div>
-    <span>@Model?.User</span>
-    <p>@Model?.Content</p>
-    <time>@(Model?.Time?.ToString("yyyy-MM-dd HH:mm:ss"))</time>
-</div>
+<main class="single-post">
+    <div class="side-by-side">
+        <h1>Post by @(Model?.User)</h1>
+        <time>@(Model?.Time?.ToString("yyyy-MM-dd HH:mm:ss"))</time>
+    </div>
+    <div class="text">
+        <p>@(Model?.Content)</p>
+    </div>
+    <div>
+        @* must check equality with true since it can be null, false or true *@
+        @if (@Model?.LookingForLove == true)
+        {
+            <hr/>
+            <p>@Model.User is looking for love and identifies themself as <span class="lower">@Model.Sex</span>.</p>
+        }
+    </div>
+</main>

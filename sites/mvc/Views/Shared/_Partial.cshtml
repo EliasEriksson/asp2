@@ -1,1 +1,6 @@
+@{
+    var now = DateTime.Now;
+    var formattedDatetime = now.ToString("yyyy-MM-dd HH:mm:ss");
+}
 
+<time datetime="@(formattedDatetime)">@(formattedDatetime)</time>
