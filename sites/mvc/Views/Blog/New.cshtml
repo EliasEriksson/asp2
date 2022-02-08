@@ -20,17 +20,41 @@
                 <div>
                     <label asp-for="Sex">@Sexes.Woman</label>
                     <span class="validation-error" asp-validation-for="Sex"></span>
-                    <input type="radio" asp-for="Sex" value="@((int) @Sexes.Woman)">
+                    @if (Model?.Sex == Sexes.Woman)
+                    {
+                        <input type="radio" asp-for="Sex" value="@((int) @Sexes.Woman)" checked>
+                    }
+                    else
+                    {
+                        <input type="radio" asp-for="Sex" value="@((int) @Sexes.Woman)">
+                    }
+                    
                 </div>
                 <div>
                     <label asp-for="Sex">@Sexes.Man</label>
                     <span class="validation-error" asp-validation-for="Sex"></span>
-                    <input type="radio" asp-for="Sex" value="@((int) @Sexes.Man)">
+                    @if (Model?.Sex == Sexes.Man)
+                    {
+                        <input type="radio" asp-for="Sex" value="@((int) @Sexes.Man)" checked>
+
+                    }
+                    else
+                    {
+                        <input type="radio" asp-for="Sex" value="@((int) @Sexes.Man)">
+
+                    }
                 </div>
                 <div>
                     <label asp-for="Sex">@Sexes.Other</label>
                     <span class="validation-error" asp-validation-for="Sex"></span>
-                    <input type="radio" asp-for="Sex" value="@((int) @Sexes.Other)" checked>
+                    @if (Model?.Sex == Sexes.Man || Model?.Sex == Sexes.Woman)
+                    {
+                        <input type="radio" asp-for="Sex" value="@((int) @Sexes.Other)">
+                    }
+                    else
+                    {
+                        <input type="radio" asp-for="Sex" value="@((int) @Sexes.Other)" checked>
+                    }
                 </div>
             </div>
             <div>
