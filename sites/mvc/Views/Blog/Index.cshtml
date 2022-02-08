@@ -29,8 +29,11 @@
                             <p><span class="cap">@post.User</span> defines as <span class="lower">@post.Sex</span> and is looking for love ;)</p>
                         </div>
                     }
-                    @* va i helvete asp, varför blir detta rätt?????? *@
+                    @* what the hll asp, why is this correct?????? *@
                     <a asp-controller="Blog" asp-action="@post.Id"></a>
+                    @* should be *@
+                    @* <a asp-controller="Blog" asp-action="Index" asp-route-id="@post.Id"></a> *@
+                    @* but this turns the id to get parameter *@
                 </div>
             }
         }

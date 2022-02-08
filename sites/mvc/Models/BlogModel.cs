@@ -2,6 +2,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace mvc.Models
 {
+    /**
+     * enum for sexual orientation
+     *
+     * used by the model
+     */
     public enum Sexes
     {
         Man,
@@ -9,6 +14,12 @@ namespace mvc.Models
         Other
     }
 
+    /**
+     * blog model
+     * contains fields saved to the json objects in the json file
+     *
+     * each field contains its own validators
+     */
     public class BlogModel
     {
         [Required]
